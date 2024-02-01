@@ -56,9 +56,7 @@ input, button {
   height: 70vh;
   margin-top: 15vh;
 }
-#create-acct {
-  display: none;
-}
+
 
 #submit, #sign-up,  {
   background-color: #0583D2;
