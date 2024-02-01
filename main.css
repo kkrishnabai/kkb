@@ -74,7 +74,10 @@ button:hover {
 }
 
 #sign-up {
+ background-color: #0583D2;
+  color: white;
   border: none;
+  margin-top: 5%;
 }
 
 #create-acct {
