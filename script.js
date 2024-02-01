@@ -56,7 +56,7 @@ createacctbtn.addEventListener("click", function() {
   }
   
   if(signupEmail == null || confirmSignupEmail == null || signupPassword == null || confirmSignUpPassword == null) {
-  console.log("Please fill out all required fields.");
+  alert("Please fill out all required fields.");
     isVerified = false;
   }
   
@@ -66,7 +66,7 @@ createacctbtn.addEventListener("click", function() {
       // Signed in 
       const user = userCredential.user;
       // ...
-      window.alert("Success! Account created.");
+      alert("Success! Account created.");
     })
     .catch((error) => {
       const errorCode = error.code;
