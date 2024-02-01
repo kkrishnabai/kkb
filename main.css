@@ -60,7 +60,7 @@ input, button {
   display: none;
 }
 
-#submit, #create-acct-btn {
+#submit, #create-acct-btn, #sign-up, #create-acct {
   background-color: #0583D2;
   color: white;
   border: none;
@@ -73,21 +73,4 @@ button:hover {
   transition: 0.3s;
 }
 
-#sign-up {
- background-color: #0583D2;
-  color: white;
-  border: none;
-  margin-top: 5%;
-}
 
-#create-acct {
-  display: none;
-}
-
-#return-btn {
-  background: none;
-  color: grey;
-  text-decoration: underline;
-  border: none;
-  margin-top: 3%;
-}
