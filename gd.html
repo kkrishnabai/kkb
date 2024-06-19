@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Team Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result, #topic {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            color: #333;
+            text-align: center;
+        }
+
+        #result {
+            margin-top: 20px;
+            border-top: 2px solid #4CAF50;
+        }
+
+        #topic {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function selectTeam() {
+            var numStudents = parseInt(document.getElementById('numStudents').value);
+            var numTeamMembers = parseInt(document.getElementById('numTeamMembers').value);
+
+            if (numStudents <= 0 || numTeamMembers <= 0 || numTeamMembers > numStudents) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            var selectedMembers = [];
+            while (selectedMembers.length < numTeamMembers) {
+                var randomMember = getRandomInt(1, numStudents);
+                if (!selectedMembers.includes(randomMember)) {
+                    selectedMembers.push(randomMember);
+                }
+            }
+
+            var topics = [
+                "Impact of Artificial Intelligence on Future Job Market",
+                "Sustainable Engineering Practices: Challenges and Opportunities",
+                "Role of Engineers in Addressing Climate Change",
+                "Ethical Considerations in Engineering Innovation",
+                "Importance of Soft Skills for Engineers",
+                "Pros and Cons of Remote Work in Engineering",
+                "Emerging Technologies in the Automotive Industry",
+                "The Future of Renewable Energy Technologies",
+                "How Engineering Can Help Achieve Sustainable Development Goals (SDGs)",
+                "Challenges in Adopting Industry 4.0 in Manufacturing"
+            ];
+
+            var randomTopic = topics[Math.floor(Math.random() * topics.length)];
+
+            document.getElementById('result').innerHTML = "Selected team members: " + selectedMembers.join(', ');
+            document.getElementById('topic').innerHTML = "Topic for discussion: " + randomTopic;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Random Team Selector</h2>
+        <form>
+            <label for="numStudents">Number of Students:</label>
+            <input type="number" id="numStudents" name="numStudents" min="1" required>
+
+            <label for="numTeamMembers">Number of Team Members:</label>
+            <input type="number" id="numTeamMembers" name="numTeamMembers" min="1" required>
+
+            <button type="button" onclick="selectTeam()">Select Team Members</button>
+        </form>
+
+        <div id="result"></div>
+        <div id="topic"></div>
+    </div>
+</body>
+</html>
